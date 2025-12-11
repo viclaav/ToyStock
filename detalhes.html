@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOYSTOK - Detalhamento do Pedido</title>
+  <link rel="icon" href="img/toy-removebg-preview.png" type="image/x-icon" />
+  <style>
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('img/fundo5.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  margin: 0;
+  color: #333;
+  min-height: 100vh;
+}
+
+
+
+header {
+  background-color: #2F3A56;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+  height: 80px;
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+header img {
+  height: 100px;
+  object-fit: contain;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #5f64a0;
+}
+
+
+
+main {
+  max-width: 900px;
+  margin: 120px auto 40px; 
+  padding: 25px;
+  background-color: #ebebeb;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+
+
+.section-box {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.section-box h2 {
+  margin-top: 0;
+  color: #003366;
+}
+
+.info-row {
+  margin-bottom: 10px;
+}
+
+.info-row strong {
+  color: #1a1a1a;
+}
+
+
+.timeline {
+  border-left: 3px solid #2F3A56;
+  margin-left: 10px;
+  padding-left: 15px;
+}
+
+.timeline p {
+  margin: 10px 0;
+}
+
+
+
+.btn-status {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  margin-top: 20px;
+  background-color: #2F3A56;
+  border: none;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-status:hover {
+  background-color: #5f64a0;
+}
+
+
+
+footer {
+  background-color: #2F3A56;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px 0;
+  font-weight: bold;
+  position: relative;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo-titulo">
+ <a href="inicio.html"> <img src="img/toy-removebg-preview.png" alt="Logo TOYSTOK"> </a>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="PAGINAINICIAL.html">Página Inicial</a></li>
+        <li><a href="INSTITUCIONAL.html">Página Institucional</a></li>
+        <li><a href="CADASTRODEPEDIDOS.html">Cadastro de Pedidos</a></li>
+        <li><a href="relatorio.html">Relatórios</a></li>
+        <li><a href="MINHACONTA.HTML">Minha Conta</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+
+  <main>
+
+    <h1 style="text-align:center; color:#003366;">Detalhamento do Pedido</h1>
+
+
+    <div class="section-box">
+      <h2>Dados do Cliente</h2>
+
+      <div class="info-row"><strong>Nome:</strong> Mario Souza</div>
+      <div class="info-row"><strong>Telefone:</strong> (11) 90000-0000</div>
+      <div class="info-row"><strong>Email:</strong> mario@gmail.com</div>
+    </div>
+
+
+    <div class="section-box">
+      <h2>Informações do Produto</h2>
+
+      <div class="info-row"><strong>Produto:</strong> Carrinho de controle remoto</div>
+      <div class="info-row"><strong>Quantidade:</strong> 120 unidades</div>
+      <div class="info-row"><strong>Data do Pedido:</strong> 22/11/2025</div>
+      <div class="info-row"><strong>Previsão de Entrega:</strong> 05/12/2025</div>
+    </div>
+
+    <div class="section-box">
+      <h2>Linha do Tempo do Pedido</h2>
+
+      <div class="timeline">
+       <strong>Pedido recebido</strong> — 22/11/2025</p>
+       <strong>Em produção</strong> — Em andamento</p>
+       <strong>Finalizando embalagem</strong> — A iniciar</p>
+       <strong>Pronto para envio</strong> — A iniciar</p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>2025 © TOYSTOK - Fábrica de Brinquedos | Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>

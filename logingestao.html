@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOYSTOK - Login Funcionários Gestão</title>
+  <link rel="icon" href="img/toy-removebg-preview.png" type="image/x-icon" />
+  <style>
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('img/fundo5.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+}
+
+header {
+  background-color: #2F3A56;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+  height: 80px;
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+header img {
+  height: 100px;
+  object-fit: contain;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #5f64a0;
+}
+
+
+.form-container {
+  background-color: rgba(117, 131, 170, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgb(255, 254, 254);
+  opacity: 2.0;
+  width: 500px;
+  margin: 280px auto; 
+  box-sizing: border-box;
+  position: center;
+  z-index: 2;
+}
+
+
+h1 {
+  text-align: center;
+  color: #bfdbf3;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-size: 14px;
+  color: #bfdbf3;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #052c5f;
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #849bc5;
+}
+
+footer {
+  background-color: #2F3A56;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: auto;
+  font-weight: bold;
+  width: 100%;
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-titulo">
+<a href="inicio.html"> <img src="img/toy-removebg-preview.png" alt="Logo TOYSTOK"> </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="PAGINAINICIAL.html">Página Inicial</a></li>
+        <li><a href="INSTITUCIONAL.html">Página Institucional</a></li>
+        <li><a href="CADASTRODEPEDIDOS.html">Cadastro de Pedidos</a></li>
+        <li><a href="relatorio.html">Relatórios</a></li>
+        <li><a href="MINHACONTA.HTML">Minha Conta</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+      <div class="form-container">
+  <h1>Login Gestão</h1>
+  <form action="#" method="POST">
+    <div class="input-group">
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" required>
+    </div>
+
+    <div class="input-group">
+      <label for="senha">Senha:</label>
+      <input type="text" id="senha" name="senha" required>
+    </div>
+
+    <button type="submit" class="submit-btn">Entrar</button>
+
+    
+    <div class="cadastro-link">
+      Não tem conta? <a href="cadastrofuncionariogestao.html">Cadastre-se aqui!</a>
+    </div>
+
+
+    </form>
+  </div>
+
+
+
+  <footer>
+    <p>2025 © TOYSTOK - Fábrica de Brinquedos | Todos os direitos reservados.</p>
+  </footer>
+
+<!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  
+  <!-- Script principal -->
+  <script src="JS/logingestao.js"></script>
+  <script src="JS/config.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOYSTOK - Cadastro de Produtos</title>
+  <link rel="icon" href="img/toy.png" type="image/x-icon" />
+  <style>
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('img/fundo5.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+}
+
+header {
+  background-color: #2F3A56;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+  height: 80px;
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+header img {
+  height: 100px;
+  object-fit: contain;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #5f64a0;
+}
+.form-container {
+  background-color: rgba(117, 131, 170, 0.9);
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgb(255, 254, 254);
+  width: 600px;
+  margin: 120px auto 40px auto;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  text-align: center;
+  color: #bfdbf3;
+  margin-top: 0;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-size: 14px;
+  color:#bfdbf3;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color:  #052c5f;
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #5f64a0;
+}
+
+#listaProdutos {
+  margin-top: 30px;
+}
+
+.produto-card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.produto-card strong {
+  color: #bfdbf3;
+}
+
+.produto-card button {
+  background-color: #2F3A56;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.produto-card button:hover {
+  background-color: #ffacd8;
+  color:#bfdbf3;
+}
+
+footer {
+  background-color: #2F3A56;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: auto;
+  font-weight: bold;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-titulo">
+    <a href="inicio.html"> <img src="img/toy-removebg-preview.png" alt="Logo TOYSTOK"> </a>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="PAGINAINICIAL.html">Página Inicial</a></li>
+      <li><a href="INSTITUCIONAL.html">Institucional</a></li>
+      <li><a href="CADASTRODEPEDIDOS.html">Cadastro de Pedidos</a></li>
+      <li><a href="relatorio.html">Relatórios</a></li>
+      <li><a href="#">Minha Conta</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="form-container">
+  <h1>Cadastro de Pedidos</h1>
+
+  <form id="form">
+    <input type="hidden" id="produtoId">
+
+    <div class="input-group">
+      <label for="produto">Nome do Produto:</label>
+      <input type="text" id="produto" name="produto" required>
+    </div>
+
+    <div class="input-group">
+      <label for="codigo">Código do Produto:</label>
+      <input type="text" id="codigo" name="codigo" required>
+    </div>
+
+    <div class="input-group">
+      <label for="categoria">Categoria:</label>
+      <select id="categoria" name="categoria" required>
+        <option value="">Selecione uma categoria</option>
+        <option value="boneca">Boneca</option>
+        <option value="carrinho">Carrinho</option>
+        <option value="jogo">Jogo</option>
+        <option value="pelucia">Pelúcia</option>
+        <option value="educativo">Brinquedo Educativo</option>
+        <option value="montar">Blocos de Montar</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label for="marca">Marca/Fabricante:</label>
+      <input type="text" id="marca" name="marca" required>
+    </div>
+
+    <div class="input-group">
+      <label for="faixa-etaria">Faixa Etária:</label>
+      <select id="faixa-etaria" name="faixa-etaria" required>
+        <option value="">Selecione uma faixa etária</option>
+        <option value="1">+1 Ano</option>
+        <option value="3">+3 Anos</option>
+        <option value="6">+6 Anos</option>
+        <option value="9">+9 Anos</option>
+        <option value="12">+12 Anos</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label for="preco">Preço de Venda:</label>
+      <input type="text" id="preco" name="preco" required>
+    </div>
+
+    <div class="input-group">
+      <label for="estoque">Quantidade em Estoque:</label>
+      <input type="text" id="estoque" name="estoque" required>
+    </div>
+
+    <div class="input-group">
+      <label for="material">Material:</label>
+      <input type="text" id="material" name="material" required>
+    </div>
+
+    <div class="input-group">
+      <label for="descricao">Descrição:</label>
+      <input type="text" id="descricao" name="descricao" required>
+    </div>
+
+    <button type="submit" id="btnEnviar">Cadastrar Produto</button>
+    <button type="button" id="btnCancelarEdicao" style="display:none;">Cancelar Edição</button>
+  </form>
+
+  <p id="mensagem" style="text-align:center; font-weight:bold; color:#2F3A56;"></p>
+
+  <hr>
+  <h2 style="text-align:center; color: #bfdbf3;">Lista de Produtos</h2>
+  <button type="button" id="btnConsultar">Listar Todos</button>
+  <div id="listaProdutos"></div>
+</div>
+
+<footer>
+  <p>2025 © TOYSTOK - Fábrica de Brinquedos | Todos os direitos reservados.</p>
+</footer>
+
+<!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+    <!-- Script principal -->
+  <script src="JS/cadastrodepedidosjs.js"></script>
+  <script src="JS/config.js"></script>
+
+</body>
+</html>

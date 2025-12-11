@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOYSTOK - Início</title>
+  <link rel="icon" href="img/toy-removebg-preview.png" type="image/x-icon" />
+  <style>
+body {
+  font-family: 'Arial', Helvetica, sans-serif;
+  margin: 0;
+  background-color: #ebebeb;
+  color: #333;
+}
+
+header {
+  background-color: #2F3A56;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+  height: 80px;
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+header img {
+  height: 100px;
+  object-fit: contain;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #5f64a0;
+}
+
+
+.carrossel {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 80px;
+}
+
+.slides {
+  display: flex;
+  width: 500%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  width: 20%;
+  flex-shrink: 0;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+#s1:checked ~ .slides {transform: translateX(0%);}
+#s2:checked ~ .slides {transform: translateX(-20%);}
+#s3:checked ~ .slides {transform: translateX(-40%);}
+#s4:checked ~ .slides {transform: translateX(-60%);}
+#s5:checked ~ .slides {transform: translateX(-80%);}
+
+.navegacao {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 5;
+}
+
+.navegacao label {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #2F3A56;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+input:checked + label {
+  background: rgb(158, 136, 168);
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 60px 20px;
+  background-color: #f4f4f4;
+  background-image: url('img/fundo9.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.card {
+  width: 550px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column; 
+  align-items: stretch;
+}
+
+.card h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #2F3A56;
+}
+
+/* cores e bordas das colunas */
+.card.pendente { background-color: #fff7d1; border-top: 6px solid #ffb84d; }
+.card.producao { background-color: #d8ecff; border-top: 6px solid #5fa8d3; }
+.card.concluido { background-color: #dfffe2; border-top: 6px solid #6dc36d; }
+
+
+.subcard {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  text-decoration: none; 
+  color: inherit;     
+  box-sizing: border-box;
+}
+
+.subcard:hover {
+  transform: translateY(-3px);
+}
+
+.subcard img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 15px;
+  flex: 0 0 100px;
+}
+
+.subcard p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #444;
+  text-align: left;
+  line-height: 1.3;
+  flex: 1 1 auto;
+}
+
+
+.subcard:focus {
+  outline: 3px solid rgba(95,100,160,0.18);
+  outline-offset: 3px;
+}
+
+.estilo img {
+  display: block;
+  margin: 20px auto;
+  max-width: 30%;
+  border-radius: 8px;
+}
+
+footer {
+  background-color: #2F3A56;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px 0;
+  font-weight: bold;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+
+@media (max-width: 1100px) {
+  .card { width: 320px; }
+  .subcard img { width: 70px; height: 70px; flex: 0 0 70px; }
+}
+@media (max-width: 640px) {
+  .cards-container { flex-direction: column; align-items: center; padding: 20px; }
+  .card { width: 92%; }
+  .carrossel { height: 260px; }
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-titulo">
+<a href="inicio.html"> <img src="img/toy-removebg-preview.png" alt="Logo TOYSTOK"> </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="PAGINAINICIAL.html">Página Inicial</a></li>
+        <li><a href="INSTITUCIONAL.html">Página Institucional</a></li>
+        <li><a href="CADASTRODEPEDIDOS.html">Cadastro de Pedidos</a></li>
+        <li><a href="relatorio.html">Relatórios</a></li>
+        <li><a href="MINHACONTA.HTML">Minha Conta</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="carrossel">
+    <input type="radio" name="slide" id="s1" checked>
+    <input type="radio" name="slide" id="s2">
+    <input type="radio" name="slide" id="s3">
+    <input type="radio" name="slide" id="s4">
+    <input type="radio" name="slide" id="s5">
+
+    <div class="slides">
+      <div class="slide"><img src="img/carrossel.png" alt="Imagem 1"></div>
+      <div class="slide"><img src="img/carrossel2.png" alt="Imagem 2"></div>
+      <div class="slide"><img src="img/carrossel5.png" alt="Imagem 3"></div>
+      <div class="slide"><img src="img/carrossel3.png" alt="Imagem 4"></div>
+      <div class="slide"><img src="img/carrossel1.png" alt="Imagem 5"></div>
+    </div>
+
+    <div class="navegacao">
+      <label for="s1"></label>
+      <label for="s2"></label>
+      <label for="s3"></label>
+      <label for="s4"></label>
+      <label for="s5"></label>
+    </div>
+  </div>
+
+  <section class="cards-container">
+    
+    <div class="card pendente">
+      <h3>Pendente</h3>
+
+      <a class="subcard" href="detalhes.html" aria-label="Ver detalhes do pedido - Carrinho">
+        <img src="img/carrinho.webp" alt="Brinquedo 1"> 
+        <p>Carrinho de controle remoto aguardando peças.</p> 
+      </a>
+
+      <div class="subcard">
+        <img src="img/boneca.webp" alt="Brinquedo 2">
+        <p>Boneca interativa aguardando aprovação de cor.</p>
+      </div>
+      <div class="subcard">
+        <img src="img/blocos.avif" alt="Brinquedo 3">
+        <p>Jogo de blocos em fase de análise de segurança.</p>
+      </div>
+      <div class="subcard">
+        <img src="img/jogo.jpg" alt="Brinquedo 4">
+        <p>Quebra-cabeça aguardando design final.</p>
+      </div>
+      <div class="subcard">
+        <img src="img/pelucia.webp" alt="Brinquedo 5">
+        <p>Pelúcia ainda não aprovada pela supervisão.</p>
+      </div>
+    </div>
+
+    <div class="card producao">
+      <h3>Em Produção</h3>
+      <div class="subcard">
+        <img src="img/trem.webp" alt="Brinquedo 6">
+        <p>Trenzinho elétrico em montagem final.</p>
+      </div>
+      <div class="subcard">
+        <img src="img/boneco.webp" alt="Brinquedo 7">
+        <p>Bonecos articulados sendo pintados manualmente.</p>
+      </div>
+      <div class="subcard">
+        <img src="img/miniatura.webp" alt="Brinquedo 8">
+        <p>Miniaturas esportivas em fase de acabamento.</p>
+      </div>
+      <div class="subcard">
+        <img src="img/educativo.jpg" alt="Brinquedo 9">
+        <p>Brinquedo educativo sendo montado.</p>
+      </div>
+      <div class="subcard">
+        <img src="img/robo.webp" alt="Brinquedo 10">
+        <p>Robô infantil passando por testes de movimento.</p>
+      </div>
+    </div>
+
+    <div class="card concluido">
+      <h3>Concluído</h3>
+      <div class="subcard">
+        <img src="img/cubo.jpg" alt="Brinquedo 11">
+        <p>Cubo mágico embalado e pronto para envio.</p>
+      </div>
+      <div class="subcard">
+        <img src="img/heroi.webp" alt="Brinquedo 12">
+        <p>Boneco herói finalizado e aprovado pela qualidade.</p>
+      </div>
+      <div class="subcard">
+        <img src="img/cozinha.avif" alt="Brinquedo 13">
+        <p>Conjunto de cozinha infantil concluído.</p>
+      </div>
+      <div class="subcard">
+        <img src="img/trator.webp" alt="Brinquedo 14">
+        <p>Tratorzinho de brinquedo embalado.</p>
+      </div>
+      <div class="subcard">
+        <img src="img/quebracabeca.webp" alt="Brinquedo 15">
+        <p>Quebra-cabeça temático finalizado e estocado.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="estilo">
+    <img src="img/PARCERIAS2.png" alt="Linha de Produção de Brinquedos">
+  </div>
+
+  <footer>
+    <p>2025 © TOYSTOK - Fábrica de Brinquedos | Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOYSTOK - Cadastro de Funcionários Estoque</title>
+  <link rel="icon" href="img/toy-removebg-preview.png" type="image/x-icon" />
+  <style>
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('img/fundo5.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+}
+
+header {
+  background-color: #2F3A56;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+  height: 80px;
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+header img {
+  height: 100px;
+  object-fit: contain;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #5f64a0;
+}
+
+.form-container {
+  background-color: rgba(117, 131, 170, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgb(255, 254, 254);
+  opacity: 2.0;
+  width: 500px;
+  margin-top: 160px;
+  margin-bottom: 40px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  text-align: center;
+  color: #bfdbf3;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-size: 14px;
+  color: #bfdbf3;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #052c5f;
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #849bc5;
+}
+
+footer {
+  background-color: #2F3A56;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: auto;
+  font-weight: bold;
+  width: 100%;
+}
+
+/* Estilos para elementos dinâmicos adicionados pelo JavaScript */
+#btnConsultar,
+#btnCancelarEdicao {
+  margin-top: 10px;
+}
+
+#btnCancelarEdicao {
+  background-color: #dc3545;
+}
+
+#btnCancelarEdicao:hover {
+  background-color: #c82333;
+}
+
+#mensagem {
+  margin-top: 15px;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.funcionario-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border-left: 4px solid #2F3A56;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.funcionario-card strong {
+  color: #2F3A56;
+}
+
+.funcionario-card button {
+  background-color: #052c5f;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  margin-top: 10px;
+  margin-right: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  width: auto;
+}
+
+.funcionario-card button:hover {
+  background-color: #052c5f;
+}
+
+.funcionario-card button:last-child {
+  background-color: #dc3545;
+}
+
+.funcionario-card button:last-child:hover {
+  background-color: #c82333;
+}
+
+#listaFuncionarios {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-titulo">
+      <a href="inicio.html">
+        <img src="img/toy-removebg-preview.png" alt="Logo TOYSTOK">
+      </a>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="PAGINAINICIAL.html">Página Inicial</a></li>
+        <li><a href="INSTITUCIONAL.html">Página Institucional</a></li>
+        <li><a href="CADASTRODEPEDIDOS.html">Cadastro de Pedidos</a></li>
+        <li><a href="relatorio.html">Relatórios</a></li>
+        <li><a href="MINHACONTA.HTML">Minha Conta</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="form-container">
+    <h1>Cadastro Estoque</h1>
+    <!-- REMOVIDO: action="#" method="POST" -->
+    <form id="form">
+
+      <div class="input-group">
+        <label for="nome">Nome do Funcionario:</label>
+        <input type="text" id="nome" name="nome" required>
+      </div>
+
+      <div class="input-group">
+        <label for="categoria">Área:</label>
+        <select id="categoria" name="categoria" required>
+          <option value="">Selecione uma área</option>
+          <option value="Recebimento">Recebimento</option>
+          <option value="Armazenagem">Armazenagem</option>
+          <option value="Controle de estoque">Controle de estoque</option>
+          <option value="Expedição">Expedição</option>
+          <option value="Devoluções">Devoluções</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required>
+      </div>
+
+      <div class="input-group">
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" name="cpf" required>
+      </div>
+
+      <div class="input-group">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required>
+      </div>
+
+      <div class="input-group">
+        <label for="senha">Senha:</label>
+        <input type="text" id="senha" name="senha" required>
+      </div>
+
+      <div class="input-group">
+        <label for="turno">Turno:</label>
+        <select id="turno" name="turno" required>
+          <option value="">Selecione o seu turno de trabalho</option>
+          <option value="7h - 17h">7h - 17h</option>
+          <option value="18h - 02h">18h - 02h</option>
+          <option value="6h - 16h">6h - 16h</option>
+        </select>
+      </div>
+
+      <button type="submit" class="submit-btn" id="btnEnviar">Cadastrar</button>
+    </form>
+    
+    <!-- Elementos adicionais para funcionalidades JavaScript -->
+    <button type="button" id="btnConsultar" style="margin-top: 10px; background-color: #3a4083;">Consultar Funcionários</button>
+    <button type="button" id="btnCancelarEdicao" style="margin-top: 10px; background-color: #dc3545; display: none;">Cancelar Edição</button>
+    <div id="mensagem" style="margin-top: 15px; text-align: center; font-weight: bold;"></div>
+  </div>
+
+  <div id="listaFuncionarios" style="margin-top: 30px; padding: 20px; background-color: rgba(255, 255, 255, 0.9); border-radius: 8px; width: 500px; box-sizing: border-box; display: none;"></div>
+
+  <footer>
+    <p>2025 © TOYSTOK - Fábrica de Brinquedos | Todos os direitos reservados.</p>
+  </footer>
+
+<!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  
+  <!-- Script principal -->
+   <script src="JS/cadastrofuncionariosestoque.js"></script>
+  <script src="JS/config.js"></script>
+
+</body>
+</html>
