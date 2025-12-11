@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     setTimeout(() => {
                         window.location.href = "PAGINAINICIAL.html"; 
-                    }, 5000);
+                    }, 2000);
                     
                 } else {
                     // Login falhou
@@ -116,8 +116,10 @@ function verificarLogin() {
     if (usuarioLogado) {
         const usuario = JSON.parse(usuarioLogado);
         if (usuario.tipo === 'gestao') {  // MUDOU AQUI
-            // Se já estiver logado, redireciona diretamente
-            window.location.href = "PAGINAINICIAL.html";
+         
+              setTimeout(() => {
+                        window.location.href = "PAGINAINICIAL.html"; 
+                    }, 2000);
         }
     }
 }
