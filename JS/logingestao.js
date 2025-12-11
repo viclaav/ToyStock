@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     setTimeout(() => {
                         window.location.href = "PAGINAINICIAL.html"; 
-                    }, 2000);
+                    }, 5000);
                     
                 } else {
                     // Login falhou
