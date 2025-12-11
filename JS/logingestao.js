@@ -117,9 +117,8 @@ function verificarLogin() {
         const usuario = JSON.parse(usuarioLogado);
         if (usuario.tipo === 'gestao') {  // MUDOU AQUI
          
-              setTimeout(() => {
-                        window.location.href = "PAGINAINICIAL.html"; 
-                    }, 2000);
+        window.location.href = "PAGINAINICIAL.html"; 
+                
         }
     }
 }
